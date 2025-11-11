@@ -1,16 +1,31 @@
 # prueba_desarrollador_flutter
 
-A new Flutter project.
+![Flutter](https://img.shields.io/badge/Flutter-3%2B-02569B?logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-2%2B-0175C2?logo=dart&logoColor=white)
+![Android](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)
 
-## Getting Started
+Este es un proyecto creado para una prueba tecnica para la empresa [Double V Partners.](https://www.doublevpartners.com/)
 
-This project is a starting point for a Flutter application.
+Para la solución de esta prueba tecnica quiero implementar una arquitectura limpia separada por 3 capas (data, domain, presentation).
 
-A few resources to get you started if this is your first Flutter project:
+> **TODO:** Falta la implementación de manejo de estado, eliminar logica quemada en las implementaciones y añadir un poco de diseño.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Requisitos
+- Flutter estable (3.x recomendado *3.35.7*) y Dart.
+- Android SDK o Xcode para iOS.
+- Emulador o dispositivo fisico.
+
+## Arrancar la APP
+1. Instalar dependencias:
+    ```
+    flutter pub get
+    ```
+2. Ejecutar la app:
+    ```
+    flutter run
+    ```
+3. Ejecutar pruebas:
+    ```
+    flutter test
+    ```

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../main.dart';
-import '../../../../domain/models/user.dart';
 import '../../../routes/routes.dart';
+import '../../../state/state_notifier.dart';
 import '../widgets/card_user.dart';
 
 class DashboardView extends StatefulWidget {
@@ -13,7 +14,6 @@ class DashboardView extends StatefulWidget {
 }
 
 class _DashboardViewState extends State<DashboardView> {
-  User? dataUser;
   @override
   void initState() {
     super.initState();
@@ -25,9 +25,8 @@ class _DashboardViewState extends State<DashboardView> {
     final authenticationRepository = injector.authenticationRepository;
     final tempUser = await authenticationRepository.getUserData();
     if (tempUser != null) {
-      setState(() {
-        dataUser = tempUser;
-      });
+      final state = Provider.of<StateNotifier>(context, listen: false);
+      state.user = tempUser;
     } else if (mounted) {
       _handleBack();
     }
@@ -42,12 +41,14 @@ class _DashboardViewState extends State<DashboardView> {
 
   @override
   Widget build(BuildContext context) {
+    final notifier = Provider.of<StateNotifier>(context);
+    final dataUser = notifier.user;
     return Scaffold(
       appBar: AppBar(title: Text('Dashboard de usuario')),
       body: SafeArea(
         child: Column(
           children: [
-            if (dataUser != null) CardUser(dataUser: dataUser!),
+            if (dataUser != null) CardUser(dataUser: dataUser),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -55,7 +56,8 @@ class _DashboardViewState extends State<DashboardView> {
                 children: [
                   Expanded(
                     child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () =>
+                          Navigator.pushNamed(context, Routes.addDirection),
                       color: Colors.amber,
                       child: Text('Agregar dirección'),
                     ),
@@ -65,8 +67,11 @@ class _DashboardViewState extends State<DashboardView> {
                       onPressed: () {
                         _handleBack();
                       },
-                      color: Colors.amber,
-                      child: Text('Crear nuevo usuario'),
+                      color: Colors.red,
+                      child: Text(
+                        'Crear nuevo usuario',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ],

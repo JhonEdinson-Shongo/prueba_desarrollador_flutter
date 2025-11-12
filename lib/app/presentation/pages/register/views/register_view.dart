@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../main.dart';
-import '../../../../domain/models/Address.dart';
+import '../../../../domain/models/address.dart';
 import '../../../../domain/models/user.dart';
 import '../../../routes/routes.dart';
 import '../../../state/state_notifier.dart';

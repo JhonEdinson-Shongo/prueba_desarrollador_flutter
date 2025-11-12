@@ -6,10 +6,7 @@
 
 Este es un proyecto creado para una prueba tecnica para la empresa [Double V Partners.](https://www.doublevpartners.com/)
 
-Para la solución de esta prueba tecnica quiero implementar una arquitectura limpia separada por 3 capas (data, domain, presentation).
-
-> **TODO:** Falta la implementación de manejo de estado, eliminar logica quemada en las implementaciones y añadir un poco de diseño.
-
+Para la solución de esta prueba tecnica quiero implementar una arquitectura limpia separada por 3 capas (data, domain, presentation) el uso de providers e inyecciónm de dependecias al igual que los respectivos test para cada funcionalidad.
 
 ## Requisitos
 - Flutter estable (3.x recomendado *3.35.7*) y Dart.

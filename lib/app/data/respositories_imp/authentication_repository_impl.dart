@@ -21,10 +21,8 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       final jsonStr = prefs.getString(_userJsonKey);
       if (jsonStr == null) return null;
       final map = jsonDecode(jsonStr) as Map<String, dynamic>;
-      print('= = = = = = > ${map.toString()}');
       return User.fromMap(map);
     } catch (e) {
-      print('=======> $e');
       return null;
     }
   }

@@ -19,7 +19,6 @@ class _SplashViewState extends State<SplashView> {
 
   Future<void> _init() async {
     final injector = Injector.of(context);
-    await Future.delayed(const Duration(seconds: 2));
     final authenticationRepository = injector.authenticationRepository;
     final isAuthenticated = await authenticationRepository.isAuthenticated;
     if (isAuthenticated) {

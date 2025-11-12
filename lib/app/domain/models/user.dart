@@ -3,7 +3,7 @@ import 'Address.dart';
 class User {
   final String frstName;
   final String lastName;
-  final DateTime birthDate;
+  final String birthDate;
   final List<Address> addresses;
 
   User({
@@ -12,4 +12,20 @@ class User {
     required this.birthDate,
     required this.addresses,
   });
+
+  factory User.fromMap(Map<String, dynamic> map) => User(
+    frstName: map['frstName'] ?? '',
+    lastName: map['lastName'] ?? '',
+    birthDate: map['birthDate'],
+    addresses: (map['addresses'] as List<dynamic>? ?? [])
+        .map((e) => Address.fromMap(e))
+        .toList(),
+  );
+
+  Map<String, dynamic> toMap() => {
+    'frstName': frstName,
+    'lastName': lastName,
+    'birthDate': birthDate,
+    'addresses': addresses.map((a) => (a).toMap()).toList(),
+  };
 }
